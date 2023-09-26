@@ -4,6 +4,8 @@ const User = require('./User');
 const History = require('./History');
 const Technique = require('./Technique');
 
+// Define model associations
+
 Category.belongsToMany(Technique, {
     through: 'CategoryTechniques',
 });
@@ -12,4 +14,18 @@ Technique.belongsToMany(Category, {
     through: 'CategoryTechniques',
 });
 
-// ***TODO*** add more associations
+Technique.hasMany(History, {
+    foreignKey: 'technique_id',
+});
+
+History.belongsTo(Technique, {
+    foreignKey: 'technique_id'
+});
+
+User.hasMany(History, {
+    foreignKey: 'user_id',
+});
+
+History.belongsTo(User, {
+    foreignKey: 'user_id',
+});

@@ -16,6 +16,13 @@ Category.init(
         category_name: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        technique_id: {
+            type: DataTypes.INTEGER,
+            references: {
+                model: 'technique',
+                key: 'id',
+            },
         }
     },
     {
