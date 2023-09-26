@@ -6,12 +6,12 @@ const Technique = require('./Technique');
 
 // Define model associations
 
-Category.belongsToMany(Technique, {
-    through: 'CategoryTechniques',
+Category.hasMany(Technique, {
+    foreignKey: 'category_id',
 });
 
-Technique.belongsToMany(Category, {
-    through: 'CategoryTechniques',
+Technique.belongsTo(Category, {
+    foreignKey: 'category_id',
 });
 
 Technique.hasMany(History, {

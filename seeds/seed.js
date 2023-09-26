@@ -1,25 +1,22 @@
+// Import the 'sequelize' object for connecting to the database
 const sequelize = require('../config/connection');
-const { User, Project } = require('../models');
+// Import seed functions
+const seedCategories = require('./categoryData');
+const seedUsers = require('./userData');
+const seedTechniques = require('./techniqueData');
 
-const userData = require('./userData.json');
-const projectData = require('./projectData.json');
+// Define function to seed all models in the database
+const seedAll = async () => {
+  await sequelize.sync( { force: true });
 
-const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await seedCategories();
 
-  const users = await User.bulkCreate(userData, {
-    individualHooks: true,
-    returning: true,
-  });
+  await seedUsers();
 
-  for (const project of projectData) {
-    await Project.create({
-      ...project,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
-    });
-  }
+  await seedTechniques();
 
   process.exit(0);
 };
 
-seedDatabase();
+// Execute function
+seedAll();

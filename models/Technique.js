@@ -11,7 +11,7 @@ Technique.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: false,
         },
         technique_name: {
             type: DataTypes.STRING,

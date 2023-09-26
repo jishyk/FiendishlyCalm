@@ -11,19 +11,12 @@ Category.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true,
+            autoIncrement: false,
         },
         category_name: {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        technique_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'technique',
-                key: 'id',
-            },
-        }
     },
     {
         sequelize,
