@@ -4,6 +4,7 @@ const sequelize = require('../config/connection');
 const seedCategories = require('./categoryData');
 const seedUsers = require('./userData');
 const seedTechniques = require('./techniqueData');
+const seedHistory = require('./historyData');
 
 // Define function to seed all models in the database
 const seedAll = async () => {
@@ -14,6 +15,8 @@ const seedAll = async () => {
   await seedUsers();
 
   await seedTechniques();
+
+  await seedHistory();
 
   process.exit(0);
 };
