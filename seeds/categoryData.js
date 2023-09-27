@@ -4,23 +4,23 @@ const { Category } = require('../models');
 // Assign seed data to variable
 const categoryData = [
     {
-        id: 1,
+        id: 0,
         category_name: 'Relieve',
     },
     {
-        id: 2,
+        id: 1,
         category_name: 'Reduce',
     },
     {
-        id: 3,
+        id: 2,
         category_name: 'Achieve',
     },
     {
-        id: 4,
+        id: 3,
         category_name: 'Focus',
     },
     {
-        id: 5,
+        id: 4,
         category_name: 'Heal',
     },
 ];
