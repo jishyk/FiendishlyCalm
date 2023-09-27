@@ -3,7 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 // Import the 'sequelize' object for creating a model and connecting to the database.
 const sequelize = require('../config/connection');
 
-class Category extends Model {};
+class Category extends Model {}
 
 Category.init(
     {

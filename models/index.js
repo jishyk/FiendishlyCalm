@@ -29,3 +29,5 @@ User.hasMany(History, {
 History.belongsTo(User, {
     foreignKey: 'user_id',
 });
+
+module.exports = { User, Category, Technique, History };

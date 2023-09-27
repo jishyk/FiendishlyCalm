@@ -60,7 +60,7 @@ const techniqueData = [
     {
         id: 10,
         technique_name: 'Transcendence',
-        description: 'Achieve a state of full relaxation paired with acute awareness'
+        description: 'Achieve a state of full relaxation paired with acute awareness',
         category_id: 3,
     },
 ];

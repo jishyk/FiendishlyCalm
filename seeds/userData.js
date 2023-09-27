@@ -26,7 +26,7 @@ const userData = [
 ];
 
 // Function to seed model
-const seedUsers = () => Technique.bulkCreate(userData, {
+const seedUsers = () => User.bulkCreate(userData, {
     individualHooks: true,
     returning: true,
 });
