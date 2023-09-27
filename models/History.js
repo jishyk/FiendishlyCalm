@@ -13,10 +13,6 @@ History.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
         comment: {
             type: DataTypes.STRING,
             allowNull: false,

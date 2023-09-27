@@ -1,7 +1,10 @@
 const router = require('express').Router();
 const { User, Category, Technique, History } = require('../models');
 const withAuth = require('../utils/auth');
+const getRandomInt = require('../utils/getRandonInt');
 
+// ***GET all Category data***
+// This route is used to return the meditation categories that will appear on the homepage
 router.get('/', async (req, res) => {
   try {
     // Get all Category data
@@ -15,32 +18,55 @@ router.get('/', async (req, res) => {
       categories, 
       logged_in: req.session.logged_in 
     });
+    // Console.log for developer use
+    console.log(categories);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// router.get('/project/:id', async (req, res) => {
-//   try {
-//     const projectData = await Project.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+// ***GET a random Technique from the selected Category***
+// This route is used to return a random meditation technique from the Category the user selected on the homepage
+router.get('/:id', async (req, res) => {
+  try {
+    const techniqueData = await Category.findByPk(req.params.id, {
+      include: [
+        {
+          model: Technique,
+          attributes: ['technique_name', 'description'],
+        },
+      ],
+    });
 
-//     const project = projectData.get({ plain: true });
+    // Assign the queried data to a plain JavaScript object that does not contain the sequelize properties
+    const technique = techniqueData.get({ plain: true });
+    console.log(technique);
 
-//     res.render('project', {
-//       ...project,
-//       logged_in: req.session.logged_in
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    // Assign the 'techniques' key (which is an array) to a variable
+    const mydata = technique.techniques;
+    console.log(mydata);
+    
+    // Assign a random item from the array to a variable
+    const chosenData = mydata[(getRandomInt(0, mydata.length))];
+    
+    // Console.log the object keys that should be displayed in the HTML (for developer use) 
+    console.log(chosenData.technique_name);
+    console.log(chosenData.description);
+
+    // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
+    res.render('technique', {
+      ...chosenData,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// ***TODO***
+// Rick is still adding more routes here...
+
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
