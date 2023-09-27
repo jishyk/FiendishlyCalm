@@ -24,17 +24,14 @@ router.get('/', async (req, res) => {
         const history = historyData.map(item => item.get({ plain: true }));
         console.log(history);
 
-        // Assign first ten items from the array to an array variable
-        const chosenData = history.slice(0, 10);
-
         // Console.log for developer use. Using sample data (array item [2]) to confirm the desired items in the array can be accessed. 
-        console.log(chosenData[2].comment);
-        console.log(chosenData[2].technique.technique_name);
-        console.log(chosenData[2].createdAt);
+        console.log(history[2].comment);
+        console.log(history[2].technique.technique_name);
+        console.log(history[2].createdAt);
 
-        // Render the chosenData object to be used in the 'history.handlebars' template. Include the session flag.
+        // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
         res.render('history', {
-            chosenData,
+            history,
             logged_in: req.session.logged_in
         });
 
