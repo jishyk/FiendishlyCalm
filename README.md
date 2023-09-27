@@ -52,6 +52,14 @@ You and your group will use everything you’ve learned over the past six module
 
 * Links to the deployed application and the GitHub repository. Use the Guide to Deploy with Heroku and MySQL on The Full-Stack Blog if you need a reminder on how to deploy to Heroku.
 
+## Team Members
+
+## Responsibilities
+
+## Challenges
+
+## Victories
+
 ## Sources
 
 ## Submission Links
