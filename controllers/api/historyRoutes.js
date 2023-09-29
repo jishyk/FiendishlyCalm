@@ -3,7 +3,7 @@ const { User, Category, Technique, History } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // ***GET History data***
-// This route is used to return the last ten meditation techniques the user has saved, as well as the associated comments. This information will appear on the 'Remember' page.
+// This route is used to return the saved meditation techniques, as well as the associated comments. This information will appear on the 'Remember' page.
 router.get('/', async (req, res) => {
     try {
         // Get all History entries with associated techniques for the logged in user
@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 });
 
 // ***GET the Technique associated with the historical entry***
-// This route is used to return the technique from history item the user clicks on
+// This route is used to return the technique associated with the history item the user clicks on
 router.get('/:id', async (req, res) => {
     try {
         const techniqueData = await Technique.findByPk(req.params.id);
