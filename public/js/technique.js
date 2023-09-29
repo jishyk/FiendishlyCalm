@@ -8,10 +8,11 @@
 const handleCommentSave = async () => {
     
     console.log("click!");
-    
+    const techIdElement = document.getElementById('tech-id');
+
     const payload = {
         comment: document.querySelector('.comment-textarea').value,
-        technique_id: document.getElementById('tech-id').dataset.id
+        technique_id: techIdElement.dataset.id
         }
 
         console.log(payload);
