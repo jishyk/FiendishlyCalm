@@ -29,7 +29,7 @@ router.get('/', async (req, res) => {
         console.log(histories[2].technique.technique_name);
         console.log(histories[2].createdAt);
 
-        // Render the history object to be used in the 'history.handlebars' templat. Include the session flag.
+        // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
         res.render('history', {
             histories,
             logged_in: req.session.logged_in
@@ -77,18 +77,43 @@ router.post('/', async (req, res) => {
 
 // ***DELETE the historical entry***
 // This route is used when the user clicks on the DELETE button for a historical item on the history page.
-router.delete('/:id', async (req, res) => {
+router.delete('/', async (req, res) => {
     try {
         const historyData = await History.destroy({
             where: {
-                id: req.params.id
+                id: req.body.id
             }
         });
-        res.status(200).json(historyData);
+
+        // Find all History entries for the logged in user
+        const newHistoryData = await History.findAll({
+            // // ***TODO*** uncomment this code when the user login function has been added
+            // where: {
+            //     user_id: req.session.userId,
+            // },
+            include: [
+                {
+                    model: Technique,
+                    attributes: ['technique_name'],
+                }
+            ]
+        });
+
+        // Assign the queried data to a plain JavaScript object that does not contain the sequelize properties
+        const newHistories = newHistoryData.map(item => item.get({ plain: true }));
+        console.log(newHistories);
+
+        // Render the history object to be used to refresh the display. Include the session flag.
+        res.render('history', {
+            newHistories,
+            logged_in: req.session.logged_in
+        });
+
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-
 module.exports = router;
+
+
