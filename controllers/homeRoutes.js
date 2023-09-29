@@ -27,13 +27,13 @@ router.get('/', async (req, res) => {
 
 // ***GET a random Technique from the selected Category***
 // This route is used to return a random meditation technique from the Category the user selected on the homepage
-router.get('/:id', async (req, res) => {
+router.get('/technique/:id', async (req, res) => {
   try {
     const techniqueData = await Category.findByPk(req.params.id, {
       include: [
         {
           model: Technique,
-          attributes: ['technique_name', 'description'],
+          attributes: ['id', 'technique_name', 'description'],
         },
       ],
     });
@@ -52,6 +52,8 @@ router.get('/:id', async (req, res) => {
     // Console.log the object keys that should be displayed in the HTML (for developer use) 
     console.log(chosenData.technique_name);
     console.log(chosenData.description);
+    console.log(chosenData.id);
+    console.log(chosenData);
 
     // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
     res.render('technique', {
@@ -62,11 +64,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
-// ***TODO***
-// Rick is still adding more routes here...
-
-
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {

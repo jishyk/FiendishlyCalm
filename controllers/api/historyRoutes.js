@@ -3,7 +3,7 @@ const { User, Category, Technique, History } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // ***GET History data***
-// This route is used to return the last ten meditation techniques the user has saved, as well as the associated comments. This information will appear on the 'Remember' page.
+// This route is used to return the saved meditation techniques, as well as the associated comments. This information will appear on the 'Remember' page.
 router.get('/', async (req, res) => {
     try {
         // Get all History entries with associated techniques for the logged in user
@@ -21,17 +21,17 @@ router.get('/', async (req, res) => {
         });
 
         // Assign the queried data to a plain JavaScript object that does not contain the sequelize properties
-        const history = historyData.map(item => item.get({ plain: true }));
-        console.log(history);
+        const histories = historyData.map(item => item.get({ plain: true }));
+        console.log(histories);
 
         // Console.log for developer use. Using sample data (array item [2]) to confirm the desired items in the array can be accessed. 
-        console.log(history[2].comment);
-        console.log(history[2].technique.technique_name);
-        console.log(history[2].createdAt);
+        console.log(histories[2].comment);
+        console.log(histories[2].technique.technique_name);
+        console.log(histories[2].createdAt);
 
-        // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
+        // Render the history object to be used in the 'history.handlebars' templat. Include the session flag.
         res.render('history', {
-            history,
+            histories,
             logged_in: req.session.logged_in
         });
 
@@ -41,7 +41,7 @@ router.get('/', async (req, res) => {
 });
 
 // ***GET the Technique associated with the historical entry***
-// This route is used to return the technique from history item the user clicks on
+// This route is used to return the technique associated with the history item the user clicks on
 router.get('/:id', async (req, res) => {
     try {
         const techniqueData = await Technique.findByPk(req.params.id);
@@ -88,7 +88,7 @@ router.delete('/:id', async (req, res) => {
     } catch (err) {
         res.status(500).json(err);
     }
-})
+});
 
 
 module.exports = router;
