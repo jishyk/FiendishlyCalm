@@ -52,6 +52,7 @@ router.get('/:id', async (req, res) => {
     // Console.log the object keys that should be displayed in the HTML (for developer use) 
     console.log(chosenData.technique_name);
     console.log(chosenData.description);
+    console.log(chosenData);
 
     // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
     res.render('technique', {
