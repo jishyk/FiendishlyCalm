@@ -21,17 +21,17 @@ router.get('/', async (req, res) => {
         });
 
         // Assign the queried data to a plain JavaScript object that does not contain the sequelize properties
-        const history = historyData.map(item => item.get({ plain: true }));
-        console.log(history);
+        const histories = historyData.map(item => item.get({ plain: true }));
+        console.log(histories);
 
         // Console.log for developer use. Using sample data (array item [2]) to confirm the desired items in the array can be accessed. 
-        console.log(history[2].comment);
-        console.log(history[2].technique.technique_name);
-        console.log(history[2].createdAt);
+        console.log(histories[2].comment);
+        console.log(histories[2].technique.technique_name);
+        console.log(histories[2].createdAt);
 
-        // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
+        // Render the history object to be used in the 'history.handlebars' templat. Include the session flag.
         res.render('history', {
-            history,
+            histories,
             logged_in: req.session.logged_in
         });
 

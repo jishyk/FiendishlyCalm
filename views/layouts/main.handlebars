@@ -16,15 +16,16 @@
         <span role="img" aria-label="money">💸</span>
         <a href="/">FiendishlyCalm</a>
       </h1>
-      {{!-- <nav>
+      <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
         <a href="/profile">profile</a> |
         <button class="no-button" id="logout">logout</button>
         {{else}}
         <a href="/login">login</a>
+        <a href="/api/history">remember</a>
         {{/if}}
-      </nav> --}}
+      </nav>
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
@@ -35,10 +36,10 @@
     </footer>
   </div>
 
-  {{!-- <!-- Render script for logged in users only -->
+  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/public/js/logout.js"></script>
-  {{/if}} --}}
+  {{/if}}
 </body>
 
 </html>
