@@ -1,10 +1,4 @@
-// Assign HTML elements to variables
-// const comment = document.querySelector('.comment-textarea');
-// const techIdElement = document.getElementById('tech-id');
-// const technique_id = techIdElement.dataset.id
-
-
-
+// POSTs the technique and user comment from the Technique page to the History model
 const handleCommentSave = async () => {
     
     console.log("click!");
