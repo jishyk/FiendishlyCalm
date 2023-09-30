@@ -54,6 +54,12 @@ You and your group will use everything you’ve learned over the past six module
 
 ## Team Members
 
+* Rick
+
+* Joshua
+
+* Tanner
+
 ## Responsibilities
 
 ## Challenges
