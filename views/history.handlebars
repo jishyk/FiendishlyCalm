@@ -1,11 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html> 
+<section id="history-items">
+{{#each histories as |history| }}
+<div class="row mb-4 category">
+  <div class="col-md-5">
+    <h2>
+      <a href="/api/history/{{history.technique_id}}">{{history.createdAt}}</a>
+    </h2>
+    <h3>{{history.technique.technique_name}}</h3>
+    <h4>{{history.comment}}</h4>
+    <button class="delete-btn" data-history-id={{history.id}}>Remove</button>
+  </div>
+</div>
+{{/each}}
+<script src="/js/delComment.js"></script>
+</section>
