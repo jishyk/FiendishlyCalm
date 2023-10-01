@@ -32,7 +32,7 @@ router.get('/', async (req, res) => {
         // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
         res.render('history', {
             histories,
-            logged_in: req.session.logged_in
+            // logged_in: req.session.logged_in
         });
 
     } catch (err) {
@@ -57,7 +57,7 @@ router.get('/:id', async (req, res) => {
         // Render the technique object to be used in the 'technique.handlebars' template. Include the session flag.
         res.render('technique', {
             ...technique,
-            logged_in: req.session.logged_in
+            // logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
@@ -106,7 +106,7 @@ router.delete('/', async (req, res) => {
         // Render the history object to be used to refresh the display. Include the session flag.
         res.render('history', {
             newHistories,
-            logged_in: req.session.logged_in
+            // logged_in: req.session.logged_in
         });
 
     } catch (err) {
