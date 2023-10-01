@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       categories, 
-      logged_in: req.session.logged_in 
+      // logged_in: req.session.logged_in 
     });
     // Console.log for developer use
     console.log(categories);
@@ -28,6 +28,7 @@ router.get('/', async (req, res) => {
 // ***GET a random Technique from the selected Category***
 // This route is used to return a random meditation technique from the Category the user selected on the homepage
 router.get('/technique/:id', async (req, res) => {
+  console.log("made it here!");
   try {
     const techniqueData = await Category.findByPk(req.params.id, {
       include: [
@@ -58,7 +59,7 @@ router.get('/technique/:id', async (req, res) => {
     // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
     res.render('technique', {
       ...chosenData,
-      logged_in: req.session.logged_in
+      // logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
