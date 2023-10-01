@@ -66,21 +66,15 @@ router.get('/technique/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+// ***GET Guide Quiz***
+// This route is used to return the Guide quiz after the user clicks on the Guide button
+router.get('/guide', async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+    res.render('guide', { 
+           // logged_in: req.session.logged_in 
     });
-
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
+    // Console.log for developer use
+    console.log("guide requested");
   } catch (err) {
     res.status(500).json(err);
   }
