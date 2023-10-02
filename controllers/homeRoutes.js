@@ -13,11 +13,12 @@ router.get('/', async (req, res) => {
     // Serialize data so the template can read it
     const categories = categoryData.map((category) => category.get({ plain: true }));
 
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      categories, 
-      // logged_in: req.session.logged_in 
-    });
+   // Inside your routes
+res.render('homepage', { 
+  categories, 
+  logged_in: req.session ? req.session.logged_in : false 
+});
+
     // Console.log for developer use
     console.log(categories);
   } catch (err) {
