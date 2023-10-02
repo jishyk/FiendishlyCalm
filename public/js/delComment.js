@@ -30,7 +30,7 @@ const deleteComment = async (event) => {
                 }
             })
             .catch(error => {
-                console.log("Response error.");
+                console.log(error);
             })
     }
 };
