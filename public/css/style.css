@@ -32,14 +32,14 @@ nav a {
 main {
     padding: 30px;
     background-size: cover;
-    background-position: center center;
+    background-position: 100% 80%;
 }
 
 footer {
+    padding: 300px;
     background-color: #3498db;
     color: #333;
     text-align: center;
-    padding: 300px;
 }
 
 button, a.button {
