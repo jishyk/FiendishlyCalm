@@ -29,7 +29,6 @@ res.render('homepage', {
 // ***GET a random Technique from the selected Category***
 // This route is used to return a random meditation technique from the Category the user selected on the homepage
 router.get('/technique/:id', async (req, res) => {
-  console.log("made it here!");
   try {
     const techniqueData = await Category.findByPk(req.params.id, {
       include: [
