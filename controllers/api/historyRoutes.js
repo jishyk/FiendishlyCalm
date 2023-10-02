@@ -5,13 +5,13 @@ const withAuth = require('../../utils/auth');
 // ***GET History data***
 // This route is used to return the saved meditation techniques, as well as the associated comments. This information will appear on the 'Remember' page.
 router.get('/', async (req, res) => {
+    
     try {
         // Get all History entries with associated techniques for the logged in user
         const historyData = await History.findAll({
-            // // ***TODO*** uncomment this code when the user login function has been added
-            // where: {
-            //     user_id: req.session.userId,
-            // },
+            where: {
+                user_id: req.session.user_id,
+            },
             include: [
                 {
                     model: Technique,
@@ -24,19 +24,14 @@ router.get('/', async (req, res) => {
         const histories = historyData.map(item => item.get({ plain: true }));
         console.log(histories);
 
-        // Console.log for developer use. Using sample data (array item [2]) to confirm the desired items in the array can be accessed. 
-        console.log(histories[2].comment);
-        console.log(histories[2].technique.technique_name);
-        console.log(histories[2].createdAt);
-
         // Render the history object to be used in the 'history.handlebars' template. Include the session flag.
         res.render('history', {
             histories,
-            // logged_in: req.session.logged_in
+            logged_in: req.session.logged_in
         });
 
     } catch (err) {
-        res.status(500).json(err);
+        res.status(500).json(err.message);
     }
 });
 
@@ -68,7 +63,17 @@ router.get('/:id', async (req, res) => {
 // This route is used when the user clicks on the OK button after entering a comment on the technique page.
 router.post('/', async (req, res) => {
     try {
-        const historyData = await History.create(req.body);
+        const { user_id } = req.session;
+        const technique_id = req.body.technique_id;
+        const comment = req.body.comment;
+
+        const payload = {
+            user_id,
+            comment,
+            technique_id
+        };
+        
+        const historyData = await History.create(payload);
         res.status(200).json(historyData);
     } catch (err) {
         res.status(400).json(err);
