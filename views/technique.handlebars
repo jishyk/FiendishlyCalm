@@ -3,8 +3,12 @@
   <h4>{{description}}</h4>
   <div id="tech-id" data-id={{id}}></div>
   <div class="col-8">
+        {{#if logged_in}}
         <textarea class="comment-textarea" placeholder="Record your thoughts about this meditation"></textarea>
         </div>
         <button class="no-button" id="save-button">Save Meditation</button>
+        {{else}}
+        <a href="/login">Log in or Sign up to save and comment on your meditations</a>
+        {{/if}}
   <script src="/js/technique.js"></script>
   </section>
