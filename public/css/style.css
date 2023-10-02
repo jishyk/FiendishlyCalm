@@ -1,6 +1,16 @@
+li:hover {
+    background-color: transparent;
+    color: rgb(59, 157, 206);
+}
+
 body {
+    background-image: url('/images/meditation-stones.jpeg'); /* Replace with the path to your image */
+    background-size: cover; /* Ensures the image covers the entire viewport */
+    background-repeat: no-repeat; /* Makes sure the image doesn't repeat */
+    background-position: center center; /* Centers the image */
+
     background-color: #f5f7f9;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -31,13 +41,14 @@ nav a {
 
 main {
     padding: 30px;
+    height: 300px;
     background-size: cover;
     background-position: 100% 80%;
 }
 
 footer {
     padding: 300px;
-    background-color: #3498db;
+    height: 650px;
     color: #333;
     text-align: center;
 }
@@ -68,4 +79,4 @@ p {
     border: 1px solid #3498db;
     padding: 20px;
     border-radius: 10px;
-} 
+}

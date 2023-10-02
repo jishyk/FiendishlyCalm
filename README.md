@@ -62,7 +62,24 @@ You and your group will use everything you’ve learned over the past six module
 
 ## Responsibilities
 
+Responsibilities for the Fiendishly Calm meditation app were broken up into the following sections to optimize productivity as well as success among the group. The project ended up being a group effort by the end which helped with solving challenges that arose.
+
+* Rick
+    * Sequelize/Build Models
+    * MySQL
+
+* Joshua
+    * Node.js
+    * Express.js Routes
+    * Handlebars
+
+* Tanner
+    * HTML
+    * CSS
+
 ## Challenges
+
+Some challenges that arose throughout the duration of the project happened to be quite a few. But nothing our team couldn't eventually overcome. 
 
 ## Victories
 
