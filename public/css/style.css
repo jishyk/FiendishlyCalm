@@ -31,13 +31,15 @@ nav a {
 
 main {
     padding: 30px;
+    background-size: cover;
+    background-position: center center;
 }
 
 footer {
     background-color: #3498db;
     color: #333;
     text-align: center;
-    padding: 200px;
+    padding: 300px;
 }
 
 button, a.button {
@@ -63,8 +65,7 @@ p {
 }
 
 .meditation-container {
-    background-color: #ecf4f9;
     border: 1px solid #3498db;
     padding: 20px;
     border-radius: 10px;
-}
+} 
