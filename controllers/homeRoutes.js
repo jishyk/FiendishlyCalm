@@ -58,10 +58,12 @@ router.get('/technique/:id', async (req, res) => {
     console.log(chosenData);
 
     // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
-    res.render('technique', {
-      ...chosenData,
-      // logged_in: req.session.logged_in
-    });
+    // For example, in the /technique/:id route:
+res.render('technique', {
+  ...chosenData,
+  logged_in: req.session ? req.session.logged_in : false
+});
+
   } catch (err) {
     res.status(500).json(err);
   }
@@ -71,9 +73,11 @@ router.get('/technique/:id', async (req, res) => {
 // This route is used to return the Guide quiz after the user clicks on the Guide button
 router.get('/guide', async (req, res) => {
   try {
-    res.render('guide', { 
-           // logged_in: req.session.logged_in 
-    });
+    // And in the /guide route:
+res.render('guide', { 
+  logged_in: req.session ? req.session.logged_in : false 
+});
+
     // Console.log for developer use
     console.log("guide requested");
   } catch (err) {
@@ -84,7 +88,7 @@ router.get('/guide', async (req, res) => {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect('/profile');
+    res.redirect('/homepage');
     return;
   }
 
