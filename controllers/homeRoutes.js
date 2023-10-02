@@ -88,11 +88,7 @@ res.render('guide', {
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-<<<<<<< HEAD
-    res.redirect('/');
-=======
     res.redirect('/homepage');
->>>>>>> 8c35881e8a483b1d7ee1932b27271b0e1d465f2a
     return;
   }
 

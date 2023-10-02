@@ -15,7 +15,7 @@ History.init(
         },
         comment: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
         technique_id: {
             type: DataTypes.INTEGER,
