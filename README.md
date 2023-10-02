@@ -79,7 +79,7 @@ Responsibilities for the Fiendishly Calm meditation app were broken up into the 
 
 ## Challenges
 
-Some challenges that arose throughout the duration of the project happened to be quite a few. But nothing our team couldn't eventually overcome. Just to n
+Some challenges that arose throughout the duration of the project happened to be quite a few. But nothing our team couldn't eventually overcome. 
 
 ## Victories
 
