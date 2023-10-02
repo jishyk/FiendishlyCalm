@@ -1,6 +1,6 @@
 li:hover {
-    background-color: rgb(59, 157, 206);
-    color:antiquewhite;
+    background-color: transparent;
+    color: rgb(59, 157, 206);
 }
 
 body {
