@@ -16,6 +16,7 @@ router.get('/:id', async (req, res) => {
         ],
       });
   
+
       // Assign the queried data to a plain JavaScript object that does not contain the sequelize properties
       const technique = techniqueData.get({ plain: true });
       console.log(technique);
@@ -31,12 +32,12 @@ router.get('/:id', async (req, res) => {
       console.log(chosenData.technique_name);
       console.log(chosenData.description);
       console.log(chosenData.id);
-      console.log(chosenData);
+      console.log(req.session.logged_in);
   
       // Render the chosenData object to be used in the 'technique.handlebars' template. Include the session flag.
       res.render('technique', {
         ...chosenData,
-        // logged_in: req.session.logged_in
+        logged_in: req.session.logged_in
       });
     } catch (err) {
       res.status(500).json(err);
