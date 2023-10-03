@@ -79,16 +79,34 @@ Responsibilities for the Fiendishly Calm meditation app were broken up into the 
 
 ## Challenges
 
-Some challenges that arose throughout the duration of the project happened to be quite a few. But nothing our team couldn't eventually overcome. 
+Some challenges that arose throughout the duration of the project happened to be quite a few. But nothing our team couldn't eventually overcome. Some particularly difficult challenges that we as a team overcame were establishing routes, establishing the login page, and keeping track of the active session. Illness happened to be a nice outside factor to keep things interesting amongst our group as well. Overall, we as a team continued to communicate, stay patient and persevere till the end.
 
 ## Victories
 
+First off, WE DID IT! We as a team were able to communicate, remain patient and problem solve to come up with a quality application. Fiendishly Calm. Fiendishly Calm is a meditation application to get your spirit, energy, or mood redirected onto the right path. The Fiendishly Calm path. We were able to achieve the desired outcome for our web application, an interactive meditation page that will help people feel better. Great teamwork from beginning to end.
+
 ## Sources
+
+Many sources were used to get to the finish line on this one. Sources utilized in this project were as following. 
+
+* Course Lectures
+* Office Hours
+* Slack
+* Zoom Meetings
+* YouTube
+* ChatGPT
+* Google
+* Tutoring
+* W3Schools
+* Colleagues
+* Web Blogs
 
 ## Submission Links
 
-* 
+Heroku
+* https://obscure-oasis-48422-1d606ed83e3c.herokuapp.com/
 
+GitHub
 * https://github.com/jishyk/FiendishlyCalm
 
 ## Grading Requirements
