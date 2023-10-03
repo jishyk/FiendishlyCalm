@@ -1,10 +1,33 @@
 const router = require('express').Router();
 const { User } = require('../../models');
+const validator = require('validator');
 
 router.post('/', async (req, res) => {
   try {
+    
+    const password = req.body.password;
+    const options = {
+      minLength: 8,
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
+      returnScore: false
+      
+    };
+    if (validator.isStrongPassword(password, options)) {
+      console.log('Password is strong');
+    } else {
+      res
+        .status(400)
+        .json({ message: 'Not a strong password, please try again' });
+      return;
+    }
+    
+    
     const userData = await User.create(req.body);
 
+    
     req.session.save(() => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;

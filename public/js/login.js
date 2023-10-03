@@ -40,7 +40,7 @@ const signupFormHandler = async (event) => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert(response.statusText);
+      alert('No worries! Just use a stronger password and try again. Must have minLength: 8, minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 1');
     }
   }
 };
